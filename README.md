@@ -6,6 +6,7 @@
 指定のディレクトリ内にコミットがあってプッシュされたら，GitHub Actions が自動的に PDF ファイルを作成します．
 作成された PDF ファイルはリポジトリの [Releases](https://github.com/k-kana/latex-build-using-github-actions/releases) に Assets として配置されます．
 このとき，Releases は自動的に作成されます．
+
 ![Releases](https://user-images.githubusercontent.com/20158613/73607303-b4284c80-45f7-11ea-81ba-7ea6e60a3b61.png)
 
 また，一部のコードを変更することによって何個でも PDF ファイルを生成することができます．
@@ -54,7 +55,6 @@ GitHub Actions で PDF ファイルを生成する都合上，多くの場合に
 ### 卒論と要旨を作成する場合
 
 このケースを想定して作っているので，最もシンプルな手順です．
-
 
 1. `thesis/thesis.tex` を編集する．
    - なお，書く内容は卒業論文を想定しているので，章別に分割しています．
