@@ -1,0 +1,43 @@
+\documentclass[twocolumn]{jsarticle}
+
+% 独自のクラスファイルを使うときは，相対パスで指定する必要があります．
+% カレントディレクトリはリポジトリ直下です．
+% \documentclass[fleqn,11pt]{./abst/hoge}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{url}
+% 独自のパッケージを使うときは，相対パスで指定する必要があります．
+% カレントディレクトリはリポジトリ直下です．
+% \usepackage{./abst/fuga}
+\begin{document}
+
+\title{\huge{GitHub Actions を用いた \LaTeX ビルドおよび\\PDFファイルの生成と配置}}
+\author{\Large Kazuki KANAZAWA}
+\date{2020年~2月}
+\maketitle
+
+\section{背景}
+
+% これはテスト用のファイルです．
+
+\LaTeX で文章を書くとき，ソースファイルをGitでバージョン管理しながら，添削のためにPDFファイルを出力するという流れがしばしば発生する．
+しかし，PDFファイルはコミットする前にコンパイルしなければ正しくバージョン管理されず，ヒューマンエラーが発生しやすい．
+つまり，ソースファイルと合わせてバージョン管理していたはずのPDFファイルが，その時点において最新版ではない可能性がある．
+
+GitHubにプッシュした時点でPDFファイルを出力するという試みがなされている\cite{raven38,denkiuo604,takuseno}．
+これらはGitHub Actions\cite{github-actions}を用いて実現しており，自動化することによってヒューマンエラーの可能性を排除している．
+しかし，いずれも1つのPDFファイルを出力することを想定しており，複数の出力が必要な場合には触れられていない．
+
+\section{目的}
+
+以上の背景のもと，ここでは，\LaTeX で文章を書く際に複数のPDFファイルを出力する必要がある状況を想定し，PDFファイルの出力をGitHub Actionsを用いて実現することを目的とする．
+また，出力先は各リポジトリのReleasesとする．
+これにより，例えば卒業論文およびその要旨をPDFファイルで出力しなければならない状況においても，自動的に複数のPDFファイルが生成された上で配置されるため，問題が起こりにくいと考えられる．
+
+
+\begin{thebibliography}{99}
+\bibitem{raven38} raven38, ``Github Actionsで卒論CIを作る.,'' \url{http://raven38.hatenablog.com/entry/2019/11/08/000328}, 参照Feb. 2, 2020.
+\bibitem{denkiuo604} denkiuo604, ``GitHub Actions で TeX のコンパイルと PDF 化をさせようとしたら意外に苦戦した話,'' \url{https://qiita.com/denkiuo604/items/63b8c34a60a2340727b1}, 参照Feb. 2, 2020.
+\bibitem{takuseno} takuseno, ``GitHubだけでLatexをコンパイルしてPDFをリリースにアップロードする,'' \url{https://qiita.com/takuseno/items/2b4c4a129205d03526ad}, 参照Feb. 2, 2020.
+\bibitem{github-actions} GitHub, ``Features • GitHub Actions,'' \url{https://github.com/features/actions}, 参照Feb. 2, 2020.
+\end{thebibliography}
+\end{document}
